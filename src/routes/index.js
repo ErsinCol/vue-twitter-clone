@@ -9,6 +9,16 @@ const routes = [
         alias: '/home'
     },
     {
+        path: '/explore',
+        name: 'explore',
+        component: () => import('@/views/ExplorePage.vue'),
+    },
+    {
+        path: '/notifications',
+        name: 'notifications',
+        component: () => import('@/views/NotificationsPage.vue'),
+    },
+    {
         path: '/:pathMatch(.*)*',
         name: 'NotFound',
         component: () => import('@/views/NotFoundPage.vue'),
