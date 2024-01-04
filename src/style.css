@@ -2,17 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply h-full;
-}
-
 body {
-  @apply bg-black h-full m-0;
+  @apply bg-black;
   color: #e7e9ea;
-}
-
-#app {
-  @apply h-full;
 }
 
 .custom-link-active {
