@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply h-full;
+}
+
+body {
+  @apply bg-black h-full m-0;
+  color: #e7e9ea;
+}
+
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  @apply h-full;
+}
+
+.custom-link-active {
+  color: #e7e9ea;
+  font-weight: bold;
 }
