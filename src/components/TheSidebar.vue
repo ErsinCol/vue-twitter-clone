@@ -4,7 +4,7 @@ import SidebarMenu from '@/components/SidebarMenu.vue';
 </script>
 
 <template>
-    <aside class="w-[275px] min-h-screen px-2 overflow-y-auto flex justify-between">
+    <aside class="w-[275px] min-h-screen px-2 flex justify-between">
         <div class="w-full flex flex-col">
             <SidebarLogo />
             <SidebarMenu />
