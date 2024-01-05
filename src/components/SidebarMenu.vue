@@ -12,7 +12,7 @@ const isCurrentRoute = (path) => {
 <template>
     <nav role="navigation" class="mt-0.5 mb-1">
         <RouterLink v-for="menuItem in navMenuItems" :key="menuItem.label" :to="{ name: menuItem.name }">
-            <div class="inline-flex items-center p-3 rounded-full transition-colors group-hover:bg-[#eff3f41a]">
+            <div class="inline-flex items-center p-3 rounded-full transition-colors hover:bg-[#eff3f41a]">
                 <div class="relative">
                     <div v-if="menuItem.notification"
                         class="absolute -right-1 -top-1 bg-[#1d9bf0] text-white rounded-lg min-w-4 h-4 text-[11px] flex items-center justify-center">

@@ -23,6 +23,21 @@ const routes = [
                 name: 'notifications',
                 component: () => import('@/views/NotificationsPage.vue'),
             },
+            {
+                path: 'messages',
+                name: 'messages',
+                component:  () => import('@/views/MessagesPage.vue'),
+            },
+            {
+                path: 'lists',
+                name: 'lists',
+                component: () => import('@/views/ListsPage.vue'),
+            },
+            {
+                path: 'profile',
+                name: 'profile',
+                component: () => import('@/views/ProfilePage.vue')
+            }
         ]
     },
     {
