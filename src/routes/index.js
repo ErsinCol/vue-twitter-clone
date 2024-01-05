@@ -35,7 +35,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-    linkActiveClass: "custom-link-active"
+    linkExactActiveClass: "custom-link-active"
 })
 
 export default router
