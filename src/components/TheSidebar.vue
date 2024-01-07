@@ -1,6 +1,7 @@
 <script setup>
 import SidebarLogo from '@/components/SidebarLogo.vue';
 import SidebarMenu from '@/components/SidebarMenu.vue';
+import BaseButton from './BaseButton.vue';
 </script>
 
 <template>
@@ -8,7 +9,9 @@ import SidebarMenu from '@/components/SidebarMenu.vue';
         <div class="w-full flex flex-col">
             <SidebarLogo />
             <SidebarMenu />
-            <div></div>
+            <div class="my-1 w-[90%]">
+                <BaseButton size="large">Send</BaseButton>
+            </div>
         </div>
 
         <div></div>

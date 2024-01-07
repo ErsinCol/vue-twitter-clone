@@ -59,9 +59,8 @@ const isCurrentRoute = (path) => {
                         <span class="font-bold text-[15px]">Creator Studio</span>
                         <ChevronDownIcon :class="{
                             'rotate-180 transform !text-[#1d9bf0]': open,
-                            'text-[#e7e9ea]' : !open
-                        }"
-                            class="h-[18.75px] ml-3 cursor-pointer" />
+                            'text-[#e7e9ea]': !open
+                        }" class="h-[18.75px] ml-3 cursor-pointer" />
                     </DisclosureButton>
                     <DisclosurePanel class="w-full">
                         <RouterLink :to="{ name: 'Home' }"
@@ -81,9 +80,8 @@ const isCurrentRoute = (path) => {
                         <span class="font-bold text-[15px]">Professional Tools</span>
                         <ChevronDownIcon :class="{
                             'rotate-180 transform !text-[#1d9bf0]': open,
-                            'text-[#e7e9ea]' : !open
-                        }"
-                            class="h-[18.75px] ml-3 cursor-pointer" />
+                            'text-[#e7e9ea]': !open
+                        }" class="h-[18.75px] ml-3 cursor-pointer" />
                     </DisclosureButton>
                     <DisclosurePanel class="w-full">
                         <RouterLink :to="{ name: 'Home' }"
@@ -103,9 +101,8 @@ const isCurrentRoute = (path) => {
                         <span class="font-bold text-[15px]">Settings and Support</span>
                         <ChevronDownIcon :class="{
                             'rotate-180 transform !text-[#1d9bf0]': open,
-                            'text-[#e7e9ea]' : !open
-                        }"
-                            class="h-[18.75px] ml-3 cursor-pointer" />
+                            'text-[#e7e9ea]': !open
+                        }" class="h-[18.75px] ml-3 cursor-pointer" />
                     </DisclosureButton>
                     <DisclosurePanel class="w-full">
                         <RouterLink :to="{ name: 'Home' }"
