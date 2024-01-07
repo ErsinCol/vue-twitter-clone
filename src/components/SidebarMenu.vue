@@ -57,8 +57,11 @@ const isCurrentRoute = (path) => {
                     <DisclosureButton
                         class="flex p-4 cursor-pointer items-center justify-between text-left hover:bg-[#eff3f41a] transition-colors w-full">
                         <span class="font-bold text-[15px]">Creator Studio</span>
-                        <ChevronDownIcon :class="open ? 'rotate-180 transform text-[#1d9bf0]' : ''"
-                            class="text-[#e7e9ea] h-[18.75px] ml-3 cursor-pointer" />
+                        <ChevronDownIcon :class="{
+                            'rotate-180 transform !text-[#1d9bf0]': open,
+                            'text-[#e7e9ea]' : !open
+                        }"
+                            class="h-[18.75px] ml-3 cursor-pointer" />
                     </DisclosureButton>
                     <DisclosurePanel class="w-full">
                         <RouterLink :to="{ name: 'Home' }"
@@ -76,8 +79,11 @@ const isCurrentRoute = (path) => {
                     <DisclosureButton
                         class="flex p-4 cursor-pointer items-center justify-between text-left hover:bg-[#eff3f41a] transition-colors w-full">
                         <span class="font-bold text-[15px]">Professional Tools</span>
-                        <ChevronDownIcon :class="open ? 'rotate-180 transform text-[#1d9bf0]' : ''"
-                            class="text-[#e7e9ea] h-[18.75px] ml-3 cursor-pointer" />
+                        <ChevronDownIcon :class="{
+                            'rotate-180 transform !text-[#1d9bf0]': open,
+                            'text-[#e7e9ea]' : !open
+                        }"
+                            class="h-[18.75px] ml-3 cursor-pointer" />
                     </DisclosureButton>
                     <DisclosurePanel class="w-full">
                         <RouterLink :to="{ name: 'Home' }"
@@ -95,8 +101,11 @@ const isCurrentRoute = (path) => {
                     <DisclosureButton
                         class="flex p-4 cursor-pointer items-center justify-between text-left hover:bg-[#eff3f41a] transition-colors w-full">
                         <span class="font-bold text-[15px]">Settings and Support</span>
-                        <ChevronDownIcon :class="open ? 'rotate-180 transform text-[#1d9bf0]' : ''"
-                            class="text-[#e7e9ea] h-[18.75px] ml-3 cursor-pointer" />
+                        <ChevronDownIcon :class="{
+                            'rotate-180 transform !text-[#1d9bf0]': open,
+                            'text-[#e7e9ea]' : !open
+                        }"
+                            class="h-[18.75px] ml-3 cursor-pointer" />
                     </DisclosureButton>
                     <DisclosurePanel class="w-full">
                         <RouterLink :to="{ name: 'Home' }"
