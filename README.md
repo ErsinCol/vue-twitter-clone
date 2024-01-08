@@ -1,7 +1,33 @@
-# Vue 3 + Vite
+# Vue Twitter Clone
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project is a Twitter clone developed using Vue.js, inspired by the [React-twitter-clone](https://www.youtube.com/playlist?list=PLfAfrKyDRWrHBssvebbmaCx2exhfQr8WL) playlist from the [PROTOTURK](https://www.youtube.com/@PROTOTURKCOM) YouTube channel. The goal of the project is to reinforce knowledge of Vue.js and learn how to create a Twitter-like application.
 
-## Recommended IDE Setup
+## Installation and Usage
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+To run the project locally, follow these steps:
+
+1. Clone the project repository to your computer:
+
+    ```bash
+    git clone https://github.com/ErsinCol/vue-twitter-clone.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd vue-twitter-clone
+    ```
+
+3. Install the necessary dependencies:
+
+    ```bash
+    npm install
+    ```
+
+4. Start the application:
+
+    ```bash
+    npm run dev
+    ```
+
+5. Open your browser and go to `http://localhost:5173`
