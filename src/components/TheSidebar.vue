@@ -10,7 +10,7 @@ import BaseButton from './BaseButton.vue';
             <SidebarLogo />
             <SidebarMenu />
             <div class="my-1 w-[90%]">
-                <BaseButton size="large">Send</BaseButton>
+                <BaseButton size="large">Post</BaseButton>
             </div>
         </div>
 
