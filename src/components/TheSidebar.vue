@@ -1,20 +1,18 @@
 <script setup>
 import SidebarLogo from '@/components/SidebarLogo.vue';
 import SidebarMenu from '@/components/SidebarMenu.vue';
-import BaseButton from './BaseButton.vue';
+import SidebarPostBtn from '@/components/SidebarPostBtn.vue';
+import SidebarAccount from '@/components/SidebarAccount.vue';
 </script>
 
 <template>
-    <aside class="w-[275px] min-h-screen px-2 flex justify-between">
-        <div class="w-full flex flex-col">
+    <aside class="w-[275px] min-h-screen px-2 flex flex-col justify-between">
+        <div class="flex flex-col">
             <SidebarLogo />
             <SidebarMenu />
-            <div class="my-1 w-[90%]">
-                <BaseButton size="large">Post</BaseButton>
-            </div>
+            <SidebarPostBtn />
         </div>
-
-        <div></div>
+        <SidebarAccount />
     </aside>
 </template>
 
