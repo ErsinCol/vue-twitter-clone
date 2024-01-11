@@ -6,7 +6,7 @@ import SidebarAccount from '@/components/SidebarAccount.vue';
 </script>
 
 <template>
-    <aside class="w-[275px] min-h-screen px-2 flex flex-col justify-between">
+    <aside class="w-[275px] min-h-screen max-h-screen px-2 flex flex-col justify-between sticky top-0">
         <div class="flex flex-col">
             <SidebarLogo />
             <SidebarMenu />

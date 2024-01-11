@@ -73,3 +73,96 @@ export const navMenuItems = [
         }
     },
 ]
+
+export const trends = [
+    {
+        id: 1,
+        title: 'Sports',
+        topic: {
+            type: 'query',
+            value: 'ALLAH BELANIZI VERSİN',
+        },
+        postCount: 11000,
+    },
+    {
+        id: 2,
+        title: 'Trending in Turkey',
+        topic: {
+            type: 'tag',
+            value: 'EpsteinClientList',
+        },
+        postCount: 53700,
+    },
+    {
+        id: 3,
+        title: 'Sports',
+        topic: {
+            type: 'query',
+            value: 'Penaltı',
+        },
+        postCount: 67200,
+    },
+    {
+        id: 4,
+        title: 'Sports',
+        topic: {
+            type: 'query',
+            value: 'Zorbay Küçük',
+        },
+        postCount: 19100,
+    },
+    {
+        id: 5,
+        title: 'Sports',
+        topic: {
+            type: 'query',
+            value: 'Okan',
+        },
+        postCount: 22400,
+    },
+    {
+        id: 6,
+        title: 'Business',
+        topic: {
+            type: 'query',
+            value: 'Dolar 30',
+        },
+        postCount: 20400,
+    },
+    {
+        id: 7,
+        title: 'Trending in Turkey',
+        topic: {
+            type: 'tag',
+            value: 'RegaipKandili',
+        },
+        postCount: 5109,
+    },
+    {
+        id: 8,
+        title: 'Business',
+        topic: {
+            type: 'tag',
+            value: 'astor',
+        },
+        postCount: 4967,
+    },
+    {
+        id: 9,
+        title: 'Sports',
+        topic: {
+            type: 'tag',
+            value: 'SVSvsGS',
+        },
+        postCount: 34300,
+    },
+    {
+        id: 10,
+        title: 'Sports',
+        topic: {
+            type: 'query',
+            value: 'ZAHA',
+        },
+        postCount: 14100,
+    },
+]

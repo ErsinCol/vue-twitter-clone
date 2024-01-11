@@ -17,9 +17,9 @@ onClickOutside(searchContainer, () => isFocus.value = false)
 <template>
   <div
       ref="searchContainer"
-      class="relative bg-[#202327] group rounded-full flex flex-col mt-1 mb-4 border border-transparent focus-within:border-[#1d9bf0] focus-within:bg-black"
+      class="group mb-4 sticky top-0 bg-black z-10 border-y-4 border-transparent"
   >
-    <label class="flex items-center relative">
+    <label class="h-[43px] w-full flex items-center relative bg-[#202327] rounded-full border border-transparent focus-within:border-[#1d9bf0] focus-within:bg-black">
       <button class="pl-3">
         <svg viewBox="0 0 24 24"
              class="text-[#71767b] min-w-8 h-[18.75px] group-focus-within:text-[#1d9bf0]"
