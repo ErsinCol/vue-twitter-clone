@@ -34,6 +34,11 @@ const routes = [
                 component: () => import('@/views/ListsPage.vue'),
             },
             {
+                path: 'trends',
+                name: 'trends',
+                component: () => import('@/views/TrendsPage.vue'),
+            },
+            {
                 path: ':username',
                 name: 'profile',
                 component: () => import('@/views/ProfilePage.vue')

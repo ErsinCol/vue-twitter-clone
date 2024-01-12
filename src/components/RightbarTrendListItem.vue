@@ -14,7 +14,6 @@ const props = defineProps({
 <template>
   <RouterLink
       to="/"
-      class="px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors"
   >
     <div class="flex flex-col relative">
       <div class="text-[#71767b] text-[13px] leading-4 flex items-baseline">

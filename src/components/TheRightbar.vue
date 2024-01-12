@@ -1,7 +1,7 @@
 <script setup>
 import RightbarSearch from "@/components/RightbarSearch.vue";
 import RightbarPremium from "@/components/RightbarPremium.vue";
-import RightbarTrend from "@/components/RightbarTrendList.vue";
+import RightbarTrend from "@/components/RightbarTrend.vue";
 </script>
 <template>
   <aside class="w-[350px] mr-2.5">
