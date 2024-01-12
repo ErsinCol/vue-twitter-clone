@@ -39,6 +39,14 @@ const routes = [
                 component: () => import('@/views/TrendsPage.vue'),
             },
             {
+                path: 'connect_people',
+                name: 'connect-people',
+                component: () => import('@/views/RecommendedUsersPage.vue'),
+                props: route => ({
+                    userId: route.query.user_id
+                })
+            },
+            {
                 path: ':username',
                 name: 'profile',
                 component: () => import('@/views/ProfilePage.vue')
