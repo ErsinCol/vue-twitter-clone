@@ -1,19 +1,27 @@
 <script setup>
 defineProps({
-    size: {
-        type: String,
-        required: true,
-        default: 'normal',
-    }
+  size: {
+    type: String,
+    default: 'normal',
+    validator: (value) => ['normal', 'large', 'small'].includes(value),
+  },
+  severity: {
+    type: String,
+    default: 'secondary',
+    validator: (value) => ['primary', 'secondary'].includes(value),
+  }
 });
 </script>
 
 <template>
     <button
-        class="border-black bg-[#1d9bf0] hover:bg-[#1a8cd8] transition-colors select-none cursor-pointer border text-center rounded-full font-bold text-white w-full"
+        class="border-black transition-colors select-none cursor-pointer border text-center rounded-full font-bold"
         :class="{
             'min-h-9 min-w-9 px-4 text-[15px]': size === 'normal',
-            'min-w-[52px] min-h-[52px] px-8 text-[17px]': size === 'large'
+            'min-w-[52px] min-h-[52px] px-8 text-[17px]': size === 'large',
+            'text-sm px-4 min-h-8 min-w-8' : size === 'small',
+            'bg-[#1d9bf0] text-white hover:bg-[#1a8cd8]' : severity === 'primary',
+            'text-[#0f1419] bg-[#eff3f4] hover:bg-[#dadedf]' : severity === 'secondary'
         }">
         <slot></slot>
     </button>

@@ -12,7 +12,7 @@ import BaseButton from "@/components/BaseButton.vue";
         Subscribe to unlock new features and if eligible, receive a share of ads revenue.
       </div>
       <RouterLink to="/">
-        <BaseButton size="normal">Subscribe</BaseButton>
+        <BaseButton severity="primary">Subscribe</BaseButton>
       </RouterLink>
     </div>
   </div>

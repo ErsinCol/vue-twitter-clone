@@ -171,7 +171,7 @@ export const recommendedUsers = [
     {
         id: '1',
         username: 'PesindeyizApp',
-        fullname: 'Peşindeyiz Galatasayaray',
+        fullname: 'Peşindeyiz',
         avatar: 'https://pbs.twimg.com/profile_images/1565461691135148033/hLUp5RH4_x96.jpg',
         verified: true
     },
