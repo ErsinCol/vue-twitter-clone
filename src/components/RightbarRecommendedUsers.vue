@@ -10,7 +10,7 @@ const currentUserId = computed(() => authStore.currentAccount.id)
 
 <template>
   <RightbarSection title="Who to follow" :more="`/connect_people?user_id=${currentUserId}`">
-    Test
+
   </RightbarSection>
 </template>
 

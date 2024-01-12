@@ -166,3 +166,27 @@ export const trends = [
         postCount: 14100,
     },
 ]
+
+export const recommendedUsers = [
+    {
+        id: '1',
+        username: 'PesindeyizApp',
+        fullname: 'Peşindeyiz Galatasayaray',
+        avatar: 'https://pbs.twimg.com/profile_images/1565461691135148033/hLUp5RH4_x96.jpg',
+        verified: true
+    },
+    {
+        id: '2',
+        username: 'SportsCenter',
+        fullname: 'Sports Center',
+        avatar: 'https://pbs.twimg.com/profile_images/1604943357750419465/wk5BAmKG_x96.png',
+        verified: false,
+    },
+    {
+        id: '3',
+        username: 'lemarcasports',
+        fullname: 'Le Marca Sports',
+        avatar: 'https://pbs.twimg.com/profile_images/1736655442942550016/msM14oDk_x96.jpg',
+        verified: true
+    }
+]

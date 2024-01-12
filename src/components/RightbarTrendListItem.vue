@@ -1,9 +1,8 @@
 <script setup>
-import {defineProps} from 'vue';
 import RightbarTrendListItemButton from "@/components/RightbarTrendListItemButton.vue";
 import {numberFormatter} from "@/utils/numberFormatter.js";
 
-const props = defineProps({
+defineProps({
   item: {
     type: Object,
     required: true
