@@ -1,11 +1,20 @@
 <script setup>
+import {ref} from "vue";
+import { vElementHover } from '@vueuse/components'
 import BaseButton from "@/components/BaseButton.vue";
+
 defineProps({
   user: {
     type: Object,
     required: true
   }
 })
+
+const isFollow = ref(false);
+const isHovered = ref(false);
+function onHover(state){
+  isHovered.value = state
+}
 </script>
 
 <template>
@@ -28,8 +37,14 @@ defineProps({
           @{{user.username}}
         </div>
       </div>
-      <BaseButton size="small" severity="secondary">
-        Follow
+      <BaseButton
+          size="small"
+          :severity="isFollow ? 'danger-outlined': 'secondary'"
+          @click="isFollow = !isFollow"
+          v-element-hover="onHover"
+      >
+        <div v-if="!isFollow">Follow</div>
+        <div v-if="isFollow">{{ isHovered ? 'Unfollow' : 'Following' }}</div>
       </BaseButton>
     </div>
   </div>

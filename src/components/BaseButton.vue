@@ -8,7 +8,7 @@ defineProps({
   severity: {
     type: String,
     default: 'secondary',
-    validator: (value) => ['primary', 'secondary'].includes(value),
+    validator: (value) => ['primary', 'secondary', 'danger-outlined'].includes(value),
   }
 });
 </script>
@@ -21,7 +21,8 @@ defineProps({
             'min-w-[52px] min-h-[52px] px-8 text-[17px]': size === 'large',
             'text-sm px-4 min-h-8 min-w-8' : size === 'small',
             'bg-[#1d9bf0] text-white hover:bg-[#1a8cd8]' : severity === 'primary',
-            'text-[#0f1419] bg-[#eff3f4] hover:bg-[#dadedf]' : severity === 'secondary'
+            'text-[#0f1419] bg-[#eff3f4] hover:bg-[#dadedf]' : severity === 'secondary',
+            'border-[#536471] hover:border-[#67070f] bg-transparent hover:bg-[#df212e1a] text-[#eff3f4] hover:text-[#df212e]': severity === 'danger-outlined'
         }">
         <slot></slot>
     </button>
