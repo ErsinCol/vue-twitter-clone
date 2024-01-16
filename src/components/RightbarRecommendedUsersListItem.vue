@@ -23,7 +23,7 @@ function onHover(state){
     <div class="grow flex items-center justify-between">
       <div class="flex flex-col">
         <div class="flex items-center">
-                <span class="truncate text-[#e7e9ea] leading-5 font-bold text-[15px]">
+                <span class="truncate leading-5 font-bold text-[15px]">
                   {{user.fullname}}
                 </span>
           <svg v-if="user.verified" viewBox="0 0 22 22" role="img" class="ml-2 max-w-5 max-h-5 h-[18.75px] w-[18.75px] text-[#1d9bf0]">
@@ -33,7 +33,7 @@ function onHover(state){
             />
           </svg>
         </div>
-        <div class="text-[#71767b] leading-5 max-w-full text-[15px whitespace-nowrap] overflow-y-hidden overflow-x-hidden">
+        <div class="text-[color:var(--color-base-secondary)] leading-5 max-w-full text-[15px whitespace-nowrap] overflow-y-hidden overflow-x-hidden">
           @{{user.username}}
         </div>
       </div>

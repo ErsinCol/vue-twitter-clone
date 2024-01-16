@@ -15,7 +15,7 @@ defineProps({
 
 <template>
     <button
-        class="border-black transition-colors select-none cursor-pointer border text-center rounded-full font-bold"
+        class="transition-colors select-none cursor-pointer text-center rounded-full font-bold"
         :class="{
             'min-h-9 min-w-9 px-4 text-[15px]': size === 'normal',
             'min-w-[52px] min-h-[52px] px-8 text-[17px]': size === 'large',

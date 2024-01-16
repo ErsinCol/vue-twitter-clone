@@ -14,11 +14,12 @@ const accounts = computed(() => authStore.accounts)
   <div class="my-3">
     <Popover class="relative">
       <PopoverButton
-          class="w-full cursor-pointer text-left p-3 flex items-center rounded-full bg-black text-[15px] hover:bg-[#eff3f41a] transition-colors">
+          class="w-full cursor-pointer text-left p-3 flex items-center rounded-full bg-[color:var(--background-primary)] text-[15px] hover:bg-[#eff3f41a] transition-colors"
+      >
         <img :src="currentAccount.avatar" alt="avatar-image" class="w-10 h-10 rounded-full">
         <div class="max-w-full flex flex-col mx-3">
-          <span class="font-bold text-[#e7e9ea]">{{ currentAccount.fullname }}</span>
-          <span class="text-[#71767b]">@{{ currentAccount.username }}</span>
+          <span class="font-bold">{{ currentAccount.fullname }}</span>
+          <span class="text-[color:var(--color-base-secondary)]">@{{ currentAccount.username }}</span>
         </div>
         <div class="grow flex justify-end">
           <svg viewBox="0 0 24 24" class="w-[18.75px] h-[18.75px]">
@@ -27,14 +28,14 @@ const accounts = computed(() => authStore.accounts)
           </svg>
         </div>
       </PopoverButton>
-      <PopoverPanel class="absolute z-10 py-3 bottom-full mb-2 left-0 shadow-more rounded-2xl w-[300px] bg-black">
+      <PopoverPanel class="absolute z-10 py-3 bottom-full mb-2 left-0 shadow-box rounded-2xl w-[300px] bg-[color:var(--background-primary)]">
         <ul>
           <li
               v-for="account in accounts"
               :key="account.username"
               class="px-4 py-3"
               :class="{
-                  'hover:bg-[#16181c]': account.id !== currentAccount.id
+                  'hover:bg-[color:var(--background-secondary)]': account.id !== currentAccount.id
                 }"
           >
             <button
@@ -45,8 +46,8 @@ const accounts = computed(() => authStore.accounts)
               <img :src="account.avatar" alt="avatar" class="rounded-full mr-3 w-10 h-10">
               <div class="grow flex items-center justify-between">
                 <div class="text-[15px]">
-                  <div class="text-[#e7e9ea] font-bold">{{ account.fullname }}</div>
-                  <div class="text-[#71767b]">{{ account.username }}</div>
+                  <div class="font-bold">{{ account.fullname }}</div>
+                  <div class="text-[color:var(--color-base-secondary)]">{{ account.username }}</div>
                 </div>
                 <svg v-if="account.id === currentAccount.id" viewBox="0 0 24 24"
                      class="w-[18.75px] h-[18.75px] mr-2 ml-3 shrink-0">
@@ -58,13 +59,13 @@ const accounts = computed(() => authStore.accounts)
           </li>
         </ul>
         <div role="separator" class="my-3 bg-[#2f3336] h-px"></div>
-        <button class="text-left w-full px-4 py-3 hover:bg-[#eff3f41a] font-bold text-[#e7e9ea]">
+        <button class="text-left w-full px-4 py-3 hover:bg-[#eff3f41a] font-bold">
           Add an existing account
         </button>
-        <button class="text-left w-full px-4 py-3 hover:bg-[#eff3f41a] font-bold text-[#e7e9ea]">
+        <button class="text-left w-full px-4 py-3 hover:bg-[#eff3f41a] font-bold">
           Manage accounts
         </button>
-        <button class="w-full px-4 py-3 text-left font-bold text-[#e7e9ea] hover:bg-[#eff3f41a]">
+        <button class="w-full px-4 py-3 text-left font-bold hover:bg-[#eff3f41a]">
           Logout @{{ currentAccount.username }}
         </button>
       </PopoverPanel>

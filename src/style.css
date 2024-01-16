@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black antialiased;
-  color: #e7e9ea;
+  @apply bg-[color:var(--background-primary)] text-[color:var(--color-base)] antialiased;
+}
+
+.shadow-box {
+  box-shadow: var(--box-shadow);
 }
 
 .custom-link-active {
-  color: #e7e9ea;
+  color: currentColor;
   font-weight: bold;
 }

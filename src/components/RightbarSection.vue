@@ -12,9 +12,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="mb-4 bg-[#16181c] border border-[#16181c] overflow-hidden rounded-2xl flex flex-col">
+  <div class="mb-4 bg-[color:var(--background-secondary)] border border-[color:var(--background-secondary)] overflow-hidden rounded-2xl flex flex-col">
     <div class="py-3 px-4">
-      <h2 class="text-[#e7e9ea] text-xl font-extrabold leading-6 overflow-hidden">
+      <h2 class="text-xl font-extrabold leading-6 overflow-hidden">
         {{title}}
       </h2>
     </div>

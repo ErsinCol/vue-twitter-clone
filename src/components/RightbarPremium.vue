@@ -3,8 +3,8 @@ import BaseButton from "@/components/BaseButton.vue";
 </script>
 
 <template>
-  <div class="mb-4 bg-[#16181c] border border-[#16181c] overflow-x-hidden overflow-y-hidden rounded-2xl">
-    <div role="complementary" class="px-4 py-3 flex flex-col gap-2.5 items-start text-[#e7e9ea]">
+  <div class="mb-4 bg-[color:var(--background-secondary)] border border-[color:var(--background-secondary)] overflow-x-hidden overflow-y-hidden rounded-2xl">
+    <div role="complementary" class="px-4 py-3 flex flex-col gap-2.5 items-start">
       <div class="text-xl font-extrabold leading-6">
         Subscribe to Premium
       </div>
