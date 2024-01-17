@@ -8,7 +8,7 @@ export const useAppearance = defineStore('appearance', ()=>{
     const backgroundColor = ref({
         primary: '#000000',
         secondary: '#16181c',
-        third: '#273340',
+        third: '#212327',
         modal: '#5b708366'
     })
 

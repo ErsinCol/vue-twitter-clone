@@ -36,7 +36,7 @@ const modal = useModal()
           <span class="font-bold text-[15px]">Creator Studio</span>
           <ChevronDownIcon
               :class="{
-                  'rotate-180 transform !text-[#1d9bf0]': open,
+                  'rotate-180 transform !text-[color:var(--color-primary)]': open,
                   'text-current': !open
               }"
               class="h-[18.75px] ml-3 cursor-pointer"
@@ -63,7 +63,7 @@ const modal = useModal()
           <span class="font-bold text-[15px]">Professional Tools</span>
           <ChevronDownIcon
               :class="{
-                'rotate-180 transform !text-[#1d9bf0]': open,
+                'rotate-180 transform !text-[color:var(--color-primary)]': open,
                 'text-current': !open
               }"
               class="h-[18.75px] ml-3 cursor-pointer"
@@ -91,7 +91,7 @@ const modal = useModal()
           <span class="font-bold text-[15px]">Settings and Support</span>
           <ChevronDownIcon
               :class="{
-                  'rotate-180 transform !text-[#1d9bf0]': open,
+                  'rotate-180 transform !text-[color:var(--color-primary)]': open,
                   'text-current': !open
               }"
               class="h-[18.75px] ml-3 cursor-pointer"

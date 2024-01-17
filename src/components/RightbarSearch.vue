@@ -33,7 +33,7 @@ onClickOutside(searchContainer, () => isFocus.value = false)
       <input
           ref="input"
           type="text"
-          placeholder="Ara"
+          placeholder="Search"
           autocomplete="off"
           class="p-3 bg-transparent w-full outline-0 text-left flex-1 leading-5 text-[15px]"
           v-model="query"

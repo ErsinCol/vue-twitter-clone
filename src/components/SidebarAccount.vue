@@ -14,7 +14,7 @@ const accounts = computed(() => authStore.accounts)
   <div class="my-3">
     <Popover class="relative">
       <PopoverButton
-          class="w-full cursor-pointer text-left p-3 flex items-center rounded-full bg-[color:var(--background-primary)] text-[15px] hover:bg-[#eff3f41a] transition-colors"
+          class="w-full cursor-pointer text-left p-3 flex items-center rounded-full bg-[color:var(--background-primary)] text-[15px] hover:bg-[color:var(--background-third)] transition-colors"
       >
         <img :src="currentAccount.avatar" alt="avatar-image" class="w-10 h-10 rounded-full">
         <div class="max-w-full flex flex-col mx-3">
@@ -51,21 +51,23 @@ const accounts = computed(() => authStore.accounts)
                 </div>
                 <svg v-if="account.id === currentAccount.id" viewBox="0 0 24 24"
                      class="w-[18.75px] h-[18.75px] mr-2 ml-3 shrink-0">
-                  <path fill="#00ba7c"
-                        d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.81 14.68l-4.1-3.27 1.25-1.57 2.47 1.98 3.97-5.47 1.62 1.18-5.21 7.15z"/>
+                  <path
+                      fill="#00ba7c"
+                      d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.81 14.68l-4.1-3.27 1.25-1.57 2.47 1.98 3.97-5.47 1.62 1.18-5.21 7.15z"
+                  />
                 </svg>
               </div>
             </button>
           </li>
         </ul>
-        <div role="separator" class="my-3 bg-[#2f3336] h-px"></div>
-        <button class="text-left w-full px-4 py-3 hover:bg-[#eff3f41a] font-bold">
+        <div role="separator" class="my-3 bg-[color:var(--background-third)] h-px"></div>
+        <button class="text-left w-full px-4 py-3 hover:bg-[color:var(--background-secondary)] font-bold">
           Add an existing account
         </button>
-        <button class="text-left w-full px-4 py-3 hover:bg-[#eff3f41a] font-bold">
+        <button class="text-left w-full px-4 py-3 hover:bg-[color:var(--background-secondary)] font-bold">
           Manage accounts
         </button>
-        <button class="w-full px-4 py-3 text-left font-bold hover:bg-[#eff3f41a]">
+        <button class="w-full px-4 py-3 text-left font-bold hover:bg-[color:var(--background-secondary)]">
           Logout @{{ currentAccount.username }}
         </button>
       </PopoverPanel>

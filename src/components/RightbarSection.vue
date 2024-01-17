@@ -22,7 +22,7 @@ defineProps({
     <RouterLink
         v-if="more"
         :to=more
-        class="p-4 transition-colors hover:bg-white/[0.03] text-[#1d9bf0] leading-5 text-[15px]"
+        class="p-4 transition-colors hover:bg-[color:var(--background-third)] text-[color:var(--color-primary)] leading-5 text-[15px]"
     >
       Show more
     </RouterLink>

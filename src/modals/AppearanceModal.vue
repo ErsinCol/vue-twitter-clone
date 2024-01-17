@@ -1,6 +1,7 @@
 <script setup>
 import {useAppearance} from "@/store/appearance.js";
 import BaseButton from "@/components/BaseButton.vue";
+import {colors} from "@/utils/consts.js";
 
 const emit = defineEmits(['close']);
 
@@ -14,6 +15,7 @@ const setDefault = () => {
       secondary: '#f7f9f9',
       third: '#eff3f4',
       modal: '#00000066',
+      rightBar: '#00000008'
     },
     color: {
       ...appearance.color,
@@ -48,7 +50,7 @@ const setLightsOut = () => {
     backgroundColor: {
       primary: '#000000',
       secondary: '#16181c',
-      third: '#273340',
+      third: '#212327',
       modal: '#5b708366'
     },
     color: {
@@ -57,6 +59,16 @@ const setLightsOut = () => {
       baseSecondary: '#71767b'
     },
     boxShadow: 'rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px',
+  })
+}
+
+const setColor = (c) => {
+  appearance.$patch({
+    color: {
+      ...appearance.color,
+      primary: c.primary,
+      secondary: c.secondary,
+    }
   })
 }
 </script>
@@ -96,39 +108,118 @@ const setLightsOut = () => {
         </div>
       </div>
 
-      <h6 class="text-[color:var(--color-base-secondary)] mb-1 font-bold leading-5 text-[13px]">Arka Plan</h6>
-      <div class="mb-3 py-1 px-3 grid grid-cols-3 gap-1 bg-[color:var(--background-secondary)] rounded-2xl" role="radiogroup">
-        <div
-            role="radio"
-            class="px-5 h-16 inline-flex items-center justify-center bg-white text-[#011449] rounded border border-white/10 cursor-pointer font-bold"
-            :class="{
-              '!border-[color:var(--color-primary)]' : appearance.name === 'default'
-            }"
-            @click="setDefault"
-        >
-          Default
+      <section>
+        <h6 class="text-[color:var(--color-base-secondary)] mb-1 font-bold leading-5 text-[13px]">Font size</h6>
+        <div class="bg-[color:var(--background-secondary)] p-4 mb-3 rounded-2xl flex items-center gap-5">
+          <div class="text-[13px]">Aa</div>
+          <div class="h-1 flex-1 bg-[color:var(--color-secondary)] rounded-full">
+
+          </div>
+          <div class="text-[20px]">Aa</div>
         </div>
-        <div
-            role="radio"
-            class="px-5 h-16 inline-flex items-center justify-center bg-[#15202b] text-[#f7f9f9] rounded border border-white/10 cursor-pointer font-bold"
-            :class="{
-              '!border-[color:var(--color-primary)]' : appearance.name === 'dim'
-            }"
-            @click="setDim"
-        >
-          Dim
+      </section>
+
+      <section class="mb-3">
+        <h6 class="text-[color:var(--color-base-secondary)] mb-1 font-bold leading-5 text-[13px]">Color</h6>
+        <div class="bg-[color:var(--background-secondary)] py-2 rounded-2xl flex justify-around" role="radiogroup">
+          <div
+              v-for="(color, index) in colors"
+              :key="index"
+              role="radio"
+              class="py-1 w-10 h-10 rounded-full cursor-pointer flex items-center justify-center"
+              :style="{ 'background-color': color.primary }"
+              @click="setColor(color)"
+          >
+            <svg v-if="color.primary === appearance.color.primary" viewBox="0 0 24 24" class="w-[25px] h-[25px] text-white">
+              <path
+                  fill="currentColor"
+                  d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
+              />
+            </svg>
+          </div>
         </div>
-        <div
-            role="radio"
-            class="px-5 h-16 inline-flex items-center justify-center bg-black text-[#e7e9ea] rounded border border-white/10 cursor-pointer font-bold"
-            :class="{
-              '!border-[color:var(--color-primary)]' : appearance.name === 'lights-out'
+      </section>
+
+      <section class="mb-3">
+        <h6 class="text-[color:var(--color-base-secondary)] mb-1 font-bold leading-5 text-[13px]">Background</h6>
+        <div class="py-2 px-4 grid grid-cols-3 gap-2 bg-[color:var(--background-secondary)] rounded-2xl" role="radiogroup">
+          <div
+              role="radio"
+              class="group pr-3 pl-2 h-16 inline-flex items-center justify-center gap-1.5 bg-white text-[#011449] rounded border border-white/10 cursor-pointer font-bold"
+              :class="{
+              '!border-[color:var(--color-primary)] !border-2' : appearance.name === 'default'
             }"
-            @click="setLightsOut"
-        >
-          Lights out
+              @click="setDefault"
+          >
+            <div class="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
+              <div
+                  class="w-5 h-5 border-2 rounded-[32px] border-[#b9cad3] bg-transparent flex items-center justify-center"
+                  :class="{
+                  '!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] !text-white' : appearance.name === 'default'
+                }"
+              >
+                <svg v-show="appearance.name === 'default'" viewBox="0 0 24 24" class="h-[18px] w-[18px]">
+                  <path
+                      fill="currentColor"
+                      d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
+                  />
+                </svg>
+              </div>
+            </div>
+            Default
+          </div>
+          <div
+              role="radio"
+              class="group pr-3 pl-2 h-16 inline-flex items-center justify-center gap-1.5 bg-[#15202b] text-[#f7f9f9] rounded border border-white/10 cursor-pointer font-bold"
+              :class="{
+              '!border-[color:var(--color-primary)] !border-2' : appearance.name === 'dim'
+            }"
+              @click="setDim"
+          >
+            <div class="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
+              <div
+                  class="w-5 h-5 border-2 rounded-[32px] border-[#5c6e7e] bg-transparent flex items-center justify-center"
+                  :class="{
+                  '!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] !text-white' : appearance.name === 'dim'
+                }"
+              >
+                <svg v-show="appearance.name === 'dim'" viewBox="0 0 24 24" class="h-[18px] w-[18px]">
+                  <path
+                      fill="currentColor"
+                      d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
+                  />
+                </svg>
+              </div>
+            </div>
+            Dim
+          </div>
+          <div
+              role="radio"
+              class="group pr-3 pl-2 h-16 flex items-center justify-center gap-1.5 bg-black text-[#e7e9ea] rounded border border-white/10 cursor-pointer font-bold"
+              :class="{
+              '!border-[color:var(--color-primary)] !border-2' : appearance.name === 'lights-out'
+            }"
+              @click="setLightsOut"
+          >
+            <div class="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
+              <div
+                  class="w-5 h-5 border-2 rounded-[32px] border-[#3e4144] bg-transparent flex items-center justify-center"
+                  :class="{
+                  '!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] !text-white' : appearance.name === 'lights-out'
+                }"
+              >
+                <svg v-show="appearance.name === 'lights-out'" viewBox="0 0 24 24" class="h-[18px] w-[18px]">
+                  <path
+                      fill="currentColor"
+                      d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
+                  />
+                </svg>
+              </div>
+            </div>
+            Lights out
+          </div>
         </div>
-      </div>
+      </section>
 
       <div class="flex items-center justify-center">
         <BaseButton
