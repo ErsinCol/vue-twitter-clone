@@ -1,8 +1,8 @@
 <script setup>
 import {computed} from "vue";
 import {useRoute} from 'vue-router';
-import SidebarMenuMore from "@/components/SidebarMenuMore.vue";
-import {navMenuItems} from '@/utils/consts.js'
+import LeftSidebarMenuMore from "@/components/LeftSidebarMenuMore.vue";
+import {navMenuItems} from '@/helpers/consts.js'
 import {useAuthStore} from "@/store/auth.js";
 
 const route = useRoute();
@@ -62,7 +62,7 @@ const isCurrentRoute = (path) => {
       </div>
     </RouterLink>
 
-    <SidebarMenuMore />
+    <LeftSidebarMenuMore />
   </nav>
 </template>
 

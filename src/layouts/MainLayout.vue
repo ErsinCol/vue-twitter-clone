@@ -1,7 +1,7 @@
 <script setup>
-import TheSidebar from "@/components/TheSidebar.vue";
-import TheRightbar from "@/components/TheRightbar.vue";
-import Modal from "@/modals/Modal.vue";
+import TheLeftSidebar from "@/components/TheLeftSidebar.vue";
+import TheRightSidebar from "@/components/TheRightSidebar.vue";
+import TheModal from "@/modals/TheModal.vue";
 import {useModal} from "@/store/modal.js";
 import {useAppearance} from "@/store/appearance.js";
 import {onMounted} from "vue";
@@ -17,13 +17,13 @@ onMounted(()=>{
 </script>
 <template>
     <div class="w-[1265px] h-full mx-auto flex">
-        <Modal v-if="modal.modal"></Modal>
-        <TheSidebar />
+        <TheModal v-if="modal.modal"></TheModal>
+        <TheLeftSidebar />
         <div class="flex-1 flex justify-between w-full">
             <main class="flex-1 max-w-[600px] border-x border-[color:var(--background-third)]">
                 <RouterView />
             </main>
-            <TheRightbar />
+            <TheRightSidebar />
         </div>
     </div>
 </template>

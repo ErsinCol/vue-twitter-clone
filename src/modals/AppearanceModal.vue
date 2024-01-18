@@ -1,7 +1,7 @@
 <script setup>
 import {useAppearance} from "@/store/appearance.js";
 import BaseButton from "@/components/BaseButton.vue";
-import {colors, fontSizes} from "@/utils/consts.js";
+import {colors, fontSizes} from "@/helpers/consts.js";
 import {watch, nextTick, ref, onMounted} from "vue";
 
 const emit = defineEmits(['close']);

@@ -1,6 +1,6 @@
 <script setup>
-import RightbarTrendListItemButton from "@/components/RightbarTrendListItemButton.vue";
-import {numberFormatter} from "@/utils/numberFormatter.js";
+import RightSidebarTrendListItemButton from "@/components/RightSidebarTrendListItemButton.vue";
+import {numberFormatter} from "@/helpers/numberFormatter.js";
 
 defineProps({
   item: {
@@ -24,7 +24,7 @@ defineProps({
       <div class="text-[color:var(--color-base-secondary)] text-[0.813rem] leading-4 mt-1">
         {{ numberFormatter(item.postCount) }} posts
       </div>
-      <RightbarTrendListItemButton />
+      <RightSidebarTrendListItemButton />
     </div>
   </RouterLink>
 </template>

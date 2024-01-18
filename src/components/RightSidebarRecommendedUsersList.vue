@@ -1,6 +1,6 @@
 <script setup>
-import RightbarRecommendedUsersListItem from "@/components/RightbarRecommendedUsersListItem.vue";
-import {recommendedUsers} from "@/utils/consts.js";
+import RightSidebarRecommendedUsersListItem from "@/components/RightSidebarRecommendedUsersListItem.vue";
+import {recommendedUsers} from "@/helpers/consts.js";
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import {recommendedUsers} from "@/utils/consts.js";
       role="button"
       class="px-4 py-3 hover:bg-[color:var(--background-third)] transition-colors cursor-pointer"
   >
-    <RightbarRecommendedUsersListItem :user="user" />
+    <RightSidebarRecommendedUsersListItem :user="user" />
   </div>
 </template>
 
