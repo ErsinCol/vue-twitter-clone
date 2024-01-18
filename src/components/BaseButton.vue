@@ -17,8 +17,8 @@ defineProps({
     <button
         class="transition-all select-none cursor-pointer text-center rounded-full font-bold"
         :class="{
-            'min-h-9 min-w-9 px-4 text-[15px]': size === 'normal',
-            'min-w-[52px] min-h-[52px] px-8 text-[17px]': size === 'large',
+            'min-h-9 min-w-9 px-4': size === 'normal',
+            'w-full min-h-[3.25rem] px-8 text-[1.063rem]': size === 'large',
             'text-sm px-4 min-h-8 min-w-8' : size === 'small',
             'bg-[color:var(--color-primary)] text-white hover:opacity-90' : severity === 'primary',
             'text-[#0f1419] bg-[#eff3f4] hover:bg-[#dadedf]' : severity === 'secondary',

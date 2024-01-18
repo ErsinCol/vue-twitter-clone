@@ -17,12 +17,12 @@ onClickOutside(searchContainer, () => isFocus.value = false)
 <template>
   <div
       ref="searchContainer"
-      class="min-h-[32px] h-[53px] group mb-4 sticky top-0 bg-[color:var(--background-primary)] z-10 border-y-4 border-transparent"
+      class="min-h-[2rem] h-[3.313rem] group mb-4 sticky top-0 bg-[color:var(--background-primary)] z-10 border-y-4 border-transparent"
   >
-    <label class="h-[43px] w-full flex items-center relative bg-[color:var(--background-third)] rounded-full border border-transparent focus-within:border-[color:var(--color-primary)] focus-within:bg-[color:var(--background-primary)]">
+    <label class="h-[2.688rem] w-full flex items-center relative bg-[color:var(--background-third)] rounded-full border border-transparent focus-within:border-[color:var(--color-primary)] focus-within:bg-[color:var(--background-primary)]">
       <button class="pl-3">
         <svg viewBox="0 0 24 24"
-             class="text-[color:var(--color-base-secondary)] min-w-8 h-[18.75px] group-focus-within:text-[color:var(--color-primary)]"
+             class="text-[color:var(--color-base-secondary)] h-[1.172rem] min-w-[2rem] group-focus-within:text-[color:var(--color-primary)]"
         >
           <path
               fill="currentColor"
@@ -35,7 +35,7 @@ onClickOutside(searchContainer, () => isFocus.value = false)
           type="text"
           placeholder="Search"
           autocomplete="off"
-          class="p-3 bg-transparent w-full outline-0 text-left flex-1 leading-5 text-[15px]"
+          class="p-3 bg-transparent w-full outline-0 text-left flex-1 leading-5"
           v-model="query"
           @focus="isFocus = true"
       />

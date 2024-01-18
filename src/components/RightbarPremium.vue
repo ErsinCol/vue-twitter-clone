@@ -8,7 +8,7 @@ import BaseButton from "@/components/BaseButton.vue";
       <div class="text-xl font-extrabold leading-6">
         Subscribe to Premium
       </div>
-      <div class="leading-5 text-[15px]">
+      <div class="leading-5 font-bold">
         Subscribe to unlock new features and if eligible, receive a share of ads revenue.
       </div>
       <RouterLink to="/">

@@ -1,7 +1,8 @@
 <script setup>
 import {useAppearance} from "@/store/appearance.js";
 import BaseButton from "@/components/BaseButton.vue";
-import {colors} from "@/utils/consts.js";
+import {colors, fontSizes} from "@/utils/consts.js";
+import {watch, nextTick, ref, onMounted} from "vue";
 
 const emit = defineEmits(['close']);
 
@@ -46,7 +47,7 @@ const setDim = () => {
 
 const setLightsOut = () => {
   appearance.$patch({
-    name:'lights-out',
+    name: 'lights-out',
     backgroundColor: {
       primary: '#000000',
       secondary: '#16181c',
@@ -71,13 +72,33 @@ const setColor = (c) => {
     }
   })
 }
+
+const fontSizePercent = ref(0)
+
+onMounted(()=>{
+  fontSizePercent.value = document.querySelector('.active-font-size').offsetLeft + 3;
+})
+
+watch(
+    () => appearance.fontSize
+    , async(newValue, oldValue) => {
+      await nextTick()
+      fontSizePercent.value = document.querySelector('.active-font-size').offsetLeft + 3
+    })
+
+const setFontSize = (size) => {
+  appearance.$patch({
+    fontSize: size
+  })
+}
 </script>
 
 <template>
   <div>
-    <h3 class="mt-8 mb-3 text-[23px] leading-7 font-extrabold text-center">Display</h3>
+    <h3 class="mt-8 mb-3 text-[1.438rem] leading-7 font-extrabold text-center">Display</h3>
     <div class="p-8 pt-0">
-      <p class="text-center text-[color:var(--color-base-secondary)] text-[15px] leading-5 mb-5">These settings affect all the X accounts on this browser.</p>
+      <p class="text-center text-[color:var(--color-base-secondary)] text-[0.938rem] leading-5 mb-5">These settings affect
+        all the X accounts on this browser.</p>
       <div class="mx-8 mb-4">
         <div class="border border-[color:var(--background-third)] px-4 py-3 flex gap-3 rounded-2xl">
           <img
@@ -86,7 +107,7 @@ const setColor = (c) => {
               class="w-10 h-10 rounded-full object-cover"
           >
           <div class="flex-1 flex flex-col">
-            <div class="mb-0.5 leading-5 text-[15px] flex items-center">
+            <div class="mb-0.5 leading-5 flex items-center">
               <div class="font-bold flex items-center">
                 X
                 <svg viewBox="0 0 22 22" class="w-[18.75px] h-[18.75px] text-[#1d9bf0] ml-0.5">
@@ -100,8 +121,10 @@ const setColor = (c) => {
                 @X . 31d
               </div>
             </div>
-            <div class="flex flex-col leading-5 text-[15px]">
-              <div>At the heart of X are short messages called posts — just like this one — which can include photos, videos, links, text, hashtags, and mentions like</div>
+            <div class="flex flex-col leading-5">
+              <div>At the heart of X are short messages called posts — just like this one — which can include photos,
+                videos, links, text, hashtags, and mentions like
+              </div>
               <a href="https://twitter.com/" target="_blank" class="text-[#1d9bf0] font-bold hover:underline">@X</a>
             </div>
           </div>
@@ -111,11 +134,35 @@ const setColor = (c) => {
       <section>
         <h6 class="text-[color:var(--color-base-secondary)] mb-1 font-bold leading-5 text-[13px]">Font size</h6>
         <div class="bg-[color:var(--background-secondary)] p-4 mb-3 rounded-2xl flex items-center gap-5">
-          <div class="text-[13px]">Aa</div>
-          <div class="h-1 flex-1 bg-[color:var(--color-secondary)] rounded-full">
-
+          <div class="text-[0.813rem]">Aa</div>
+          <div class="h-1 flex-1 bg-[color:var(--color-secondary)] rounded-full relative">
+            <div
+                class="absolute top-0 left-0 rounded-full bg-[color:var(--color-primary)] h-full"
+                :style="{width : fontSizePercent + 'px'}"
+            />
+            <div class="flex justify-between absolute w-[calc(100%+16px)] -top-3.5 -left-[8px]">
+              <button
+                  v-for="(fs, index) in fontSizes"
+                  :key="index"
+                  class="before:absolute before:inset-0 before:rounded-full before:hover:bg-[color:var(--color-primary)] before:opacity-10 w-8 h-8 rounded-full flex items-center justify-center relative"
+                  :class="{
+                'active-font-size' : fs === appearance.fontSize
+              }"
+                  type="button"
+                  @click="setFontSize(fs)"
+                  :data-index="index"
+              >
+                <div
+                    class="w-3 h-3 rounded-full bg-[color:var(--color-secondary)]"
+                    :class="{
+                    '!w-4 !h-4' : fs === appearance.fontSize,
+                    '!bg-[color:var(--color-primary)]' : fs <= appearance.fontSize
+                  }"
+                />
+              </button>
+            </div>
           </div>
-          <div class="text-[20px]">Aa</div>
+          <div class="text-[1.25rem]">Aa</div>
         </div>
       </section>
 
@@ -126,11 +173,12 @@ const setColor = (c) => {
               v-for="(color, index) in colors"
               :key="index"
               role="radio"
-              class="py-1 w-10 h-10 rounded-full cursor-pointer flex items-center justify-center"
+              class="py-1 w-[40px] h-[40px] rounded-full cursor-pointer flex items-center justify-center"
               :style="{ 'background-color': color.primary }"
               @click="setColor(color)"
           >
-            <svg v-if="color.primary === appearance.color.primary" viewBox="0 0 24 24" class="w-[25px] h-[25px] text-white">
+            <svg v-if="color.primary === appearance.color.primary" viewBox="0 0 24 24"
+                 class="w-[25px] h-[25px] text-white">
               <path
                   fill="currentColor"
                   d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
@@ -142,18 +190,20 @@ const setColor = (c) => {
 
       <section class="mb-3">
         <h6 class="text-[color:var(--color-base-secondary)] mb-1 font-bold leading-5 text-[13px]">Background</h6>
-        <div class="py-2 px-4 grid grid-cols-3 gap-2 bg-[color:var(--background-secondary)] rounded-2xl" role="radiogroup">
+        <div class="py-2 px-4 grid grid-cols-3 gap-2 bg-[color:var(--background-secondary)] rounded-2xl"
+             role="radiogroup">
           <div
               role="radio"
-              class="group pr-3 pl-2 h-16 inline-flex items-center justify-center gap-1.5 bg-white text-[#011449] rounded border border-white/10 cursor-pointer font-bold"
+              class="group pr-3 pl-2 h-[62px] inline-flex items-center justify-center gap-1.5 bg-white text-[#011449] rounded border border-white/10 cursor-pointer font-bold"
               :class="{
               '!border-[color:var(--color-primary)] !border-2' : appearance.name === 'default'
             }"
               @click="setDefault"
           >
-            <div class="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
+            <div
+                class="w-[40px] h-[40px] rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
               <div
-                  class="w-5 h-5 border-2 rounded-[32px] border-[#b9cad3] bg-transparent flex items-center justify-center"
+                  class="w-[20px] h-[20px] border-[2px] rounded-[32px] border-[#b9cad3] bg-transparent flex items-center justify-center"
                   :class="{
                   '!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] !text-white' : appearance.name === 'default'
                 }"
@@ -166,19 +216,20 @@ const setColor = (c) => {
                 </svg>
               </div>
             </div>
-            Default
+            <div class="truncate">Default</div>
           </div>
           <div
               role="radio"
-              class="group pr-3 pl-2 h-16 inline-flex items-center justify-center gap-1.5 bg-[#15202b] text-[#f7f9f9] rounded border border-white/10 cursor-pointer font-bold"
+              class="group pr-3 pl-2 h-[62px] inline-flex items-center justify-center gap-1.5 bg-[#15202b] text-[#f7f9f9] rounded border border-white/10 cursor-pointer font-bold"
               :class="{
               '!border-[color:var(--color-primary)] !border-2' : appearance.name === 'dim'
             }"
               @click="setDim"
           >
-            <div class="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
+            <div
+                class="w-[40px] h-[40px] rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
               <div
-                  class="w-5 h-5 border-2 rounded-[32px] border-[#5c6e7e] bg-transparent flex items-center justify-center"
+                  class="w-[20px] h-[20px] border-[2px] rounded-[32px] border-[#5c6e7e] bg-transparent flex items-center justify-center"
                   :class="{
                   '!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] !text-white' : appearance.name === 'dim'
                 }"
@@ -191,19 +242,20 @@ const setColor = (c) => {
                 </svg>
               </div>
             </div>
-            Dim
+            <div class="truncate">Dim</div>
           </div>
           <div
               role="radio"
-              class="group pr-3 pl-2 h-16 flex items-center justify-center gap-1.5 bg-black text-[#e7e9ea] rounded border border-white/10 cursor-pointer font-bold"
+              class="group pr-3 pl-2 h-[62px] flex items-center justify-center gap-1.5 bg-black text-[#e7e9ea] rounded border border-white/10 cursor-pointer font-bold"
               :class="{
               '!border-[color:var(--color-primary)] !border-2' : appearance.name === 'lights-out'
             }"
               @click="setLightsOut"
           >
-            <div class="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
+            <div
+                class="w-[40px] h-[40px] rounded-full flex-shrink-0 group-hover:bg-[#8b98a11a] flex items-center justify-center">
               <div
-                  class="w-5 h-5 border-2 rounded-[32px] border-[#3e4144] bg-transparent flex items-center justify-center"
+                  class="w-[20px] h-[20px] border-[2px] rounded-[32px] border-[#3e4144] bg-transparent flex items-center justify-center"
                   :class="{
                   '!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] !text-white' : appearance.name === 'lights-out'
                 }"
@@ -216,12 +268,12 @@ const setColor = (c) => {
                 </svg>
               </div>
             </div>
-            Lights out
+            <div class="truncate">Lights out</div>
           </div>
         </div>
       </section>
 
-      <div class="flex items-center justify-center">
+      <div class="flex items-center justify-center pt-4">
         <BaseButton
             severity="primary"
             @click="emit('close')"

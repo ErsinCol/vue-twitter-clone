@@ -16,7 +16,7 @@ const isCurrentRoute = (path) => {
 </script>
 
 <template>
-  <nav role="navigation" class="mt-0.5 mb-1">
+  <nav role="navigation" class="mt-0.5 mb-1 flex flex-col">
     <RouterLink
         v-for="menuItem in navMenuItems"
         :key="menuItem.label"
@@ -25,13 +25,13 @@ const isCurrentRoute = (path) => {
     >
         <div class="relative">
           <div v-if="menuItem.notification"
-               class="absolute -right-1 -top-1 bg-[color:var(--color-primary)] text-[color:var(--background-primary)] rounded-lg min-w-4 h-4 text-[11px] flex items-center justify-center border border-[color:var(--background-primary)]">
+               class="absolute -right-1 -top-1 bg-[color:var(--color-primary)] text-[color:var(--background-primary)] rounded-lg w-[1.125rem] h-[1.125rem] text-[0.688rem] flex items-center justify-center border border-[color:var(--background-primary)]">
             {{ menuItem.notification }}
           </div>
-          <svg v-if="!isCurrentRoute(menuItem.path)" viewBox="0 0 24 24" class="w-[26.25px] h-[26.25px]">
+          <svg v-if="!isCurrentRoute(menuItem.path)" viewBox="0 0 24 24" class="w-[1.641rem] h-[1.614rem]">
             <path fill="currentColor" :d="menuItem.icons.passive"/>
           </svg>
-          <svg v-else viewBox="0 0 24 24" class="w-[26.25px] h-[26.25px]">
+          <svg v-else viewBox="0 0 24 24" class="w-[1.641rem] h-[1.614rem]">
             <path fill="currentColor" :d="menuItem.icons.active"/>
           </svg>
         </div>
