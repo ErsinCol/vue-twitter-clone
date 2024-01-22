@@ -7,7 +7,6 @@ export const useAppearance = defineStore('appearance', ()=>{
 
     const backgroundColor = ref({
         primary: '#000000',
-        primaryAlpha: '#000000a6',
         secondary: '#16181c',
         third: '#212327',
         modal: '#5b708366'
@@ -29,7 +28,7 @@ export const useAppearance = defineStore('appearance', ()=>{
         const root = document.documentElement
         // background-colors
         root.style.setProperty('--background-primary', backgroundColor.value.primary)
-        root.style.setProperty('--background-primary-alpha', backgroundColor.value.primaryAlpha)
+        root.style.setProperty('--background-primary-alpha', backgroundColor.value.primary + 'a6')
         root.style.setProperty('--background-secondary', backgroundColor.value.secondary)
         root.style.setProperty('--background-third', backgroundColor.value.third)
         root.style.setProperty('--background-modal', backgroundColor.value.modal)

@@ -4,6 +4,7 @@ import BaseTab from "@/components/BaseTab.vue";
 import TabLinks from "@/components/TabLinks.vue";
 import TabLinkItem from "@/components/TabLinkItem.vue";
 import TabContent from "@/components/TabContent.vue";
+import TheForYou from "@/components/TheForYou.vue";
 </script>
 
 <template>
@@ -17,7 +18,7 @@ import TabContent from "@/components/TabContent.vue";
     </TheHeader>
     <!-- Tab Contents -->
     <TabContent v-if="slotProps.activeTab === 'for-you'">
-      For you section
+      <TheForYou />
     </TabContent>
     <TabContent v-if="slotProps.activeTab === 'following'">
       Following section
