@@ -106,5 +106,5 @@ Prompt in ALT tag + more examples in thread:`,
             like: 999999,
             view: 99999999
         }
-    }
+    },
 ]
