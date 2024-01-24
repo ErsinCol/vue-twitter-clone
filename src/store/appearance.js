@@ -34,6 +34,7 @@ export const useAppearance = defineStore('appearance', ()=>{
         root.style.setProperty('--background-modal', backgroundColor.value.modal)
         // colors
         root.style.setProperty('--color-primary', color.value.primary)
+        root.style.setProperty('--color-primary-alpha', color.value.primary + '12')
         root.style.setProperty('--color-secondary', color.value.secondary)
         root.style.setProperty('--color-base', color.value.base)
         root.style.setProperty('--color-base-secondary', color.value.baseSecondary)

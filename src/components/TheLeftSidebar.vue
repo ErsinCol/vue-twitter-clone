@@ -6,7 +6,7 @@ import LeftSidebarAccount from '@/components/LeftSidebarAccount.vue';
 </script>
 
 <template>
-    <aside class="w-[275px] min-h-screen max-h-screen px-2 flex flex-col justify-between sticky top-0">
+    <aside class="w-[275px] max-h-screen min-h-screen px-2 flex flex-col justify-between sticky z-[2] top-0">
         <div class="flex flex-col">
             <LeftSidebarLogo />
             <LeftSidebarMenu />

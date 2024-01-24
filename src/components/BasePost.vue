@@ -1,12 +1,32 @@
 <script setup>
 import {numberFormatter} from "../helpers/numberFormatter.js";
+import BasePostPhoto from "@/components/BasePostPhoto.vue";
+import BasePostPoll from "@/components/BasePostPoll.vue";
 
-defineProps({
+const props = defineProps({
   post: {
     type: Object,
     required: true,
   }
 })
+
+function handleVote(answer){
+  props.post.poll = {
+    ...props.post.poll,
+    voted: true,
+    votes: props.post.poll.votes + 1,
+    answers: props.post.poll.answers.map(a=> {
+      if(a.id === answer.id) {
+        return {
+          ...a,
+          vote: a.vote + 1,
+          voted: true
+        }
+      }
+      return a
+    })
+  }
+}
 </script>
 
 <template>
@@ -38,6 +58,10 @@ defineProps({
       </header>
       <div>
         <div v-html="post.content.replace(/\n/g, '<br />')"></div>
+
+        <BasePostPhoto v-if="post.type === 'photo'" :photos="post.photos"/>
+
+        <BasePostPoll v-if="post.type === 'poll'" :poll="post.poll" @vote="handleVote"/>
 
         <div class="flex justify-between -ml-1.5 mt-1.5">
           <div class="group flex items-center gap-px cursor-pointer">
