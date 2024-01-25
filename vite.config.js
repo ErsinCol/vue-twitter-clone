@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [vue(), svgLoader({
     svgoConfig: {
       multipass: true
-    }
+    },
+    defaultImport: "component"
   })],
   resolve: {
     alias: {

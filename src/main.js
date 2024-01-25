@@ -14,6 +14,7 @@ app.component('DynamicScroller', DynamicScroller)
 app.component('DynamicScrollerItem', DynamicScrollerItem)
 app.component('BaseIcon', BaseIcon)
 
+
 app.use(pinia)
 app.use(router)
 app.mount('#app')
