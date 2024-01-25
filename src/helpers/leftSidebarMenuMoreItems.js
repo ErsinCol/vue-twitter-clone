@@ -1,12 +1,16 @@
-import {defineAsyncComponent} from "vue";
-
+import AnalyticsIcon from "@/assets/icons/analytics.svg"
+import AdsIcon from "@/assets/icons/ads.svg"
+import SettingsAndPrivacyIcon from "@/assets/icons/settings_privacy.svg"
+import HelpCenterIcon from "@/assets/icons/help_center.svg"
+import DisplayIcon from "@/assets/icons/display.svg"
+import KeyboardShortcutsIcon from "@/assets/icons/keyboard_shortcuts.svg"
 export const leftSidebarMenuMoreItems = [
     {
         label: 'Creator Studio',
         panel: [
             {
                 path: '/',
-                icon: defineAsyncComponent(() => import("@/assets/icons/analytics.svg")),
+                icon: AnalyticsIcon,
                 label: 'Analytics'
             }
         ],
@@ -16,7 +20,7 @@ export const leftSidebarMenuMoreItems = [
         panel: [
             {
                 path: '/',
-                icon: defineAsyncComponent(() => import("@/assets/icons/ads.svg")),
+                icon: AdsIcon,
                 label: 'Ads'
             }
         ]
@@ -26,21 +30,21 @@ export const leftSidebarMenuMoreItems = [
         panel: [
             {
                 path: '/',
-                icon: defineAsyncComponent(() => import("@/assets/icons/settings_privacy.svg")),
+                icon: SettingsAndPrivacyIcon,
                 label: 'Settings and privacy'
             },
             {
                 path: '/',
-                icon: defineAsyncComponent(() => import("@/assets/icons/help_center.svg")),
+                icon: HelpCenterIcon,
                 label: 'Help center'
             },
             {
-                icon: defineAsyncComponent(()=> import("@/assets/icons/display.svg")),
+                icon: DisplayIcon,
                 label: 'Display'
             },
             {
                 path: '/',
-                icon: defineAsyncComponent(() => import("@/assets/icons/keyboard_shortcuts.svg")),
+                icon: KeyboardShortcutsIcon,
                 label: 'Keyboard shortcuts'
             },
         ]
