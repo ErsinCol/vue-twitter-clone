@@ -1,3 +1,5 @@
+import {defineAsyncComponent} from "vue";
+
 export const trends = [
     {
         id: 1,
