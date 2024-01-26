@@ -1,5 +1,6 @@
 <script setup>
 import {Popover, PopoverPanel, PopoverButton} from "@headlessui/vue";
+import MoreHorizontalIcon from "@/assets/icons/moreHorizontal.svg";
 </script>
 
 <template>
@@ -25,12 +26,7 @@ import {Popover, PopoverPanel, PopoverButton} from "@headlessui/vue";
       <Popover class="relative leading-4">
         <PopoverButton class="my-0.5 pr-3 inline-flex items-center outline-0 text-[color:var(--color-base-secondary)] leading-4 hover:underline">
           More
-          <svg viewBox="0 0 24 24" class="h-[1em] px-0.5">
-            <path
-                fill="currentColor"
-                d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-            />
-          </svg>
+          <MoreHorizontalIcon class="h-[1em] px-0.5"/>
         </PopoverButton>
         <PopoverPanel class="flex flex-col absolute bottom-0 right-0 z-10 shadow-box max-h-[calc(100vh-132.164px)] max-w-[24rem] w-[9.375rem] bg-[color:var(--background-primary)] overflow-y-auto overflow-x-hidden rounded-xl">
           <RouterLink to="/" class="transition-colors px-4 py-3 hover:bg-[color:var(--background-secondary)] whitespace-nowrap">

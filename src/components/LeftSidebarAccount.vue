@@ -2,6 +2,8 @@
 import {useAuthStore} from '@/store/auth.js'
 import {computed} from 'vue';
 import {Popover, PopoverPanel, PopoverButton} from "@headlessui/vue";
+import MoreHorizontalIcon from "@/assets/icons/moreHorizontal.svg";
+import AccountCheckIcon from "@/assets/icons/accountCheck.svg";
 
 const authStore = useAuthStore();
 
@@ -22,12 +24,7 @@ const accounts = computed(() => authStore.accounts)
           <span class="text-[color:var(--color-base-secondary)]">@{{ currentAccount.username }}</span>
         </div>
         <div class="grow flex justify-end">
-          <svg viewBox="0 0 24 24" class="w-[1.172rem] h-[1.172rem]">
-            <path
-                fill="currentColor"
-                d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-            />
-          </svg>
+          <MoreHorizontalIcon class="w-[1.172rem] h-[1.172rem]"/>
         </div>
       </PopoverButton>
       <PopoverPanel class="absolute z-10 py-3 bottom-full mb-2 left-0 shadow-box rounded-2xl w-[300px] bg-[color:var(--background-primary)]">
@@ -51,13 +48,7 @@ const accounts = computed(() => authStore.accounts)
                   <div class="font-bold leading-[1.25rem]">{{ account.fullname }}</div>
                   <div class="text-[color:var(--color-base-secondary)]">{{ account.username }}</div>
                 </div>
-                <svg v-if="account.id === currentAccount.id" viewBox="0 0 24 24"
-                     class="w-[1.172rem] h-[1.172rem] mr-2 ml-3 shrink-0">
-                  <path
-                      fill="#00ba7c"
-                      d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.81 14.68l-4.1-3.27 1.25-1.57 2.47 1.98 3.97-5.47 1.62 1.18-5.21 7.15z"
-                  />
-                </svg>
+                <AccountCheckIcon v-if="account.id === currentAccount.id" class="w-[1.172rem] h-[1.172rem] mr-2 ml-3 shrink-0"/>
               </div>
             </button>
           </li>

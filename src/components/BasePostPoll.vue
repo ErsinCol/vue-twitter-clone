@@ -1,4 +1,5 @@
 <script setup>
+import VoteCheckIcon from "@/assets/icons/voteCheck.svg";
 defineProps({
   poll: {
     type: Object,
@@ -33,12 +34,7 @@ function handleVote(answer){
         />
         <div class="flex items-center gap-0.5">
           {{answer.text}}
-          <svg v-if="answer.voted" viewBox="0 0 24 24" class="h-[1.25rem]">
-            <path
-                fill="currentColor"
-                d="M12 3.75c-4.56 0-8.25 3.69-8.25 8.25s3.69 8.25 8.25 8.25 8.25-3.69 8.25-8.25S16.56 3.75 12 3.75zM1.75 12C1.75 6.34 6.34 1.75 12 1.75S22.25 6.34 22.25 12 17.66 22.25 12 22.25 1.75 17.66 1.75 12zM16.4 9.28l-5.21 7.15-4.1-3.27 1.25-1.57 2.47 1.98 3.97-5.47 1.62 1.18z"
-            />
-          </svg>
+          <VoteCheckIcon  v-if="answer.voted"  class="h-[1.25rem]"/>
         </div>
         <div>{{ ((answer.vote / poll.votes)* 100).toFixed(1) + '%' }}</div>
       </div>
