@@ -25,8 +25,6 @@ function addMorePost(){
       id: (parseInt(post.id) + allPost.value.length).toString(),
     };
   });
-
-  // Append the updated posts to the existing ones
   allPost.value = [...allPost.value, ...updatedPosts];
 }
 
@@ -40,6 +38,12 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <BasePost
+    v-for="(post, index) in allPost"
+    :key="index"
+    :post="post"
+  />
+  <!--
   <DynamicScroller
       :items="allPost"
       :min-item-size="1"
@@ -55,6 +59,7 @@ onUnmounted(() => {
       </DynamicScrollerItem>
     </template>
   </DynamicScroller>
+  -->
 </template>
 
 <style>
