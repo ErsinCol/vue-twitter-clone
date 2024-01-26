@@ -91,7 +91,7 @@ onUnmounted(()=>{
 <template>
   <aside
       ref="stickySidebarEl"
-      class="w-[350px] self-start"
+      class="w-[350px] self-start pb-16"
       :style="{
         top: `${top}px`,
         position: position,
