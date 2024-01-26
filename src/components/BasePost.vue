@@ -67,10 +67,29 @@ function handleVote(answer){
               :key="index"
               class="group flex items-center gap-px cursor-pointer"
           >
-            <div class="w-[2.172rem] h-[2.172rem] flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0] transition-colors">
-              <component :is="stat.icon" class="w-[1.172rem] h-[1.172rem]"/>
+            <div
+                class="w-[2.172rem] h-[2.172rem] flex items-center justify-center text-[color:var(--color-base-secondary)] rounded-full transition-colors"
+                :class="{
+                   'group-hover:bg-[#0eb17c1a] group-hover:text-[#0eb17c]': stat.name === 'repost',
+                   'group-hover:bg-[#de2b7f1a] group-hover:text-[#de2b7f]': stat.name === 'like',
+                   'group-hover:bg-[#1d9bf01a] group-hover:text-[#1d9bf0]' : stat.name === 'view' || stat.name === 'comments'
+                 }"
+            >
+              <component
+                  :is="stat.icon"
+                  class="w-[1.172rem] h-[1.172rem]"
+              />
             </div>
-            <span class="text-[0.813rem] text-[color:var(--color-base-secondary)] group-hover:text-[#1d9bf0] transition-colors">{{numberFormatter(post.stats[stat.name])}}</span>
+            <span
+                class="text-[0.813rem] text-[color:var(--color-base-secondary)] transition-colors"
+                :class="{
+                  'group-hover:text-[#0eb17c]' : stat.name === 'repost',
+                  'group-hover:text-[#de2b7f]' : stat.name === 'like',
+                  'group-hover:text-[#1d9bf0]' : stat.name === 'view' || stat.name === 'comments'
+                }"
+            >
+              {{numberFormatter(post.stats[stat.name])}}
+            </span>
           </div>
 
           <div class="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center cursor-pointer text-[color:var(--color-base-secondary)] hover:bg-[#1d9bf01a] rounded-full hover:text-[#1d9bf0]">
